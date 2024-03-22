@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
 
         if(!response.ok) {
-            chatWindow.innerHTML += `<div class="bot-message">Galdur: ${data.message}</div>`;
+            chatWindow.innerHTML += `<div class="bot-message">Galdur: There was an error processing your message.</div>`;
             return;
         }
 
