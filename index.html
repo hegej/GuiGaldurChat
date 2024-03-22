@@ -9,14 +9,55 @@
 </head>
 
 <body>
-    <h2>Galdur's Chat</h2>
-    <img src="Galdur.jpg" alt="Galdur" id="galdurImage">
-    <input type="text" id="usernameInput" placeholder="Your name..." />
-    <div id="chatWindow"></div>
-    <form id="messageForm">
-        <input type="text" id="userInput" placeholder="Say something..." />
-        <button type="submit">Send</button>
-    </form>
+    <div id="usernameModal" class="modal">
+        <div class="modal-content">
+            <h2 id="modalText">Før du kan fortsette, må du skrive inn det navnet du ønsker Galdur skal kalle deg.</h2>
+            <input type="text" id="usernameInputModal" placeholder="Ditt navn..." />
+            <button id="usernameSubmit">OK</button>
+        </div>
+    </div>
+    <div id="mainContainer">
+        <div id="imageAndTitleContainer">
+            <img src="Galdur.jpg" alt="Galdur" id="galdurImage">
+            <h2>Galdur Stormvender</h2>
+            <a href="#" id="infoLink">Trykk her for mer informasjon</a>
+        </div>
+        <div id="chatContainer">
+            <div id="chatWindow"></div>
+            <form id="messageForm">
+                <input type="text" id="userInput" placeholder="Skriv din beskjed til Galdur her..." />
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+    <div id="infoModal" class="modal info-modal">
+        <div class="modal-content">
+            <h2>Informasjon om Galdur Stormvender</h2>
+            <p>Velkommen til samtaler med Galdur, en klok og bereist viking og fisker fra norrøn tid. Han er kjent blant
+                sitt folk for sin dype visdom og evnen til å fortelle engasjerende historier om guder, mennesker, og
+                naturens mysterier. Galdur, som nå tjener som din guide i denne jakten, har et par unike egenskaper du
+                bør være klar over:</p>
+            <br>
+            <p><strong>Langt og Lært:</strong> Galdur elsker en god samtale og har mye kunnskap han ønsker å dele. Vær
+                forberedt på at han kan "ramble" omkring med lange fortellinger og detaljerte forklaringer. Selv om han
+                har lovet å forsøke å begrense seg, kan hans entusiasme noen ganger ta overhånd.</p>
+            <br>
+            <p><strong>Vokter av Hemmeligheter:</strong> Galdur kjenner nok identiteten til tyven bak de stjålne
+                påskeeggene &mdash; en velkjent skikkelse i hans verden. Selv om han kan være tilbakeholden med å
+                avsløre tyvens navn direkte, vil han gi deg nødvendige ledetråder hvis du stiller de riktige
+                spørsmålene. Din oppgave blir å navigere samtalen klokt for å låse opp den neste koden som vil føre deg
+                nærmere løsningen.</p>
+            <br>
+            <p><strong>Hvem er Galdur?</strong> Galdur Stormvender er ikke bare en veiviser i dette eventyret, men en
+                mann av stor integritet, hvis sjel er like dyp som de havene han har seilt. Hans erfaringer kombinerer
+                krigersk mot med en skalds visdom, noe som gjør ham til en uvurderlig alliert i søket etter de forsvunne
+                påskeeggene. Med en fortid som sjøfarer og viking er Galdur en kilde til rike historier og kunnskap om
+                den gamle verden &mdash; dens skikker, myter og legender. Hans spesielle bånd til naturen og respekt for
+                livets mysterier kommer også til uttrykk gjennom hans kjærlighet til sin færing, en tradisjonell nordisk
+                båt, som er hans foretrukne følgesvenn under stjerneklare netter.</p>
+            <button id="closeInfoModal">Lukk</button>
+        </div>
+    </div>
 </body>
 
 </html>

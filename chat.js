@@ -3,9 +3,19 @@ document.addEventListener("DOMContentLoaded", function() {
     const chatWindow = document.getElementById('chatWindow');
 
     function promptUsername() {
-        username = prompt("Før du kan fortsette, må du skrive inn det navnet du ønsker Galdur skal kalle deg");
-        if(!username || username.trim() === "") {
-            promptUsername();
+        const modal = document.getElementById('usernameModal');
+        const submitButton = document.getElementById('usernameSubmit');
+        const inputField = document.getElementById('usernameInputModal');
+    
+        modal.style.display = "block";
+    
+        submitButton.onclick = function() {
+            username = inputField.value;
+            if(!username || username.trim() === "") {
+                alert("Please enter a valid name");
+            } else {
+                modal.style.display = "none";
+            }
         }
     }
 
@@ -23,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
             messageToSend = { message: `Navnet mitt er ${username}. ${userInput}` };
         }
 
-        chatWindow.innerHTML += `<div style="text-align: left;">${username}: ${userInput}</div>`;
+        chatWindow.innerHTML += `<div class="user-message">${username}: ${userInput}</div>`;
 
         const response = await fetch('http://127.0.0.1.BotAPI', {
             method: 'POST',
@@ -32,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
 
         if(!response.ok) {
-            chatWindow.innerHTML += `<div style="color: red;">Failed to get a response from Galdur.</div>`;
+            chatWindow.innerHTML += `<div class="bot-message">Galdur: ${data.message}</div>`;
             return;
         }
 
@@ -46,6 +56,15 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('messageForm').addEventListener('submit', function(event) {
         event.preventDefault();
         sendMessage();
+    });
+
+    document.getElementById('infoLink').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.getElementById('infoModal').style.display = 'block';
+    });
+    
+    document.getElementById('closeInfoModal').addEventListener('click', function() {
+        document.getElementById('infoModal').style.display = 'none';
     });
 });
 
