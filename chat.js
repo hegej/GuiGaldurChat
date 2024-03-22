@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if(isFirstMessage) {
             delete messageToSend.userInput;
-            messageToSend.UserInput = `Navnet mitt er ${username}. ${userInput}`;
+            messageToSend.userInput = `Navnet mitt er ${username}. ${userInput}`;
         }
 
         chatWindow.innerHTML += `<div class="user-message">${username}: ${userInput}</div>`;
