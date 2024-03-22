@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", function() {
         };
 
         if(isFirstMessage) {
+            delete messageToSend.userInput;
             messageToSend.UserInput = `Navnet mitt er ${username}. ${userInput}`;
         }
 
