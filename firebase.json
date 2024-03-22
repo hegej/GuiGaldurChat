@@ -1,0 +1,11 @@
+{
+  "hosting": {
+	"site": "havets-veiviser",
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
