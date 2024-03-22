@@ -27,15 +27,17 @@ document.addEventListener("DOMContentLoaded", function() {
         inputField.value = '';
 
         const isFirstMessage = chatWindow.children.length === 0;
-        let messageToSend = { message: userInput };
+        let messageToSend = {
+            UserInput: userInput
+        };
 
         if(isFirstMessage) {
-            messageToSend = { message: `Navnet mitt er ${username}. ${userInput}` };
+            messageToSend.UserInput = `Navnet mitt er ${username}. ${userInput}`;
         }
 
         chatWindow.innerHTML += `<div class="user-message">${username}: ${userInput}</div>`;
 
-        const response = await fetch('http://127.0.0.1.BotAPI', {
+        const response = await fetch('https://vnb78t34-7071.euw.devtunnels.ms//api/Bot/chat', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(messageToSend)
@@ -49,6 +51,10 @@ document.addEventListener("DOMContentLoaded", function() {
         const data = await response.json();
         chatWindow.innerHTML += `<div style="text-align: left;">Galdur: ${data.message}</div>`;
         chatWindow.scrollTop = chatWindow.scrollHeight;
+
+        if(isFirstMessage) {
+            isFirstMessage = false;
+        }
     }
 
     window.sendMessage = sendMessage;
