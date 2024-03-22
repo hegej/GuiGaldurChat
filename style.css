@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+#galdurImage {
+    margin: 20px auto;
+    width: 40%; 
+    border-radius: 50%; 
+}
+
+#chatWindow {
+    height: 300px;
+    overflow: auto;
+    border: 1px solid #555;
+    padding: 10px;
+    margin: 20px auto;
+    background-color: #333;
+    width: 90%; 
+    max-width: 600px; 
+}
+
+#userInput {
+    width: 70%;
+    padding: 10px;
+    color: black;
+}
+
+button {
+    padding: 10px 20px;
+}
