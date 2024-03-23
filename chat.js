@@ -29,8 +29,8 @@ document.addEventListener("DOMContentLoaded", function() {
         const isFirstMessage = chatWindow.children.length === 0;
         
         let messageToSend = {
-            userInput: userInput,
-            username: username
+            username: username,
+            userInput: userInput
         };
 
         if(isFirstMessage) {
