@@ -41,25 +41,25 @@ document.addEventListener("DOMContentLoaded", function() {
 
     promptUsername();
 
-    let isFirstMessage = true;
-
     async function sendMessage() {
         const inputField = document.getElementById('userInput');
         let userInput = inputField.value;
         inputField.value = '';
 
+        const isFirstMessage = chatWindow.children.length === 0;
+        
         let messageToSend = {
+            username: username,
             userInput: userInput,
-            username: username, 
             sessionId: localStorage.getItem('sessionId')
         };
-        
+
         if(isFirstMessage) {
-            messageToSend.UserInput = `Navnet mitt er ${username}. ${userInput}`;
-            isFirstMessage = false;
+            delete messageToSend.userInput;
+            messageToSend.userInput = `Navnet mitt er ${username}. ${userInput}`;
         }
-    
-        chatWindow.innerHTML += `<div class="user-message">${username}: ${userInput}</div>`;    
+
+        chatWindow.innerHTML += `<div class="user-message">${username}: ${userInput}</div>`;
 
         const response = await fetch('https://hd0mqgsb-7071.euw.devtunnels.ms/api/Bot/chat', {
             method: 'POST',
@@ -75,6 +75,10 @@ document.addEventListener("DOMContentLoaded", function() {
         const data = await response.json();
         chatWindow.innerHTML += `<div style="text-align: left;">Galdur: ${data.message}</div>`;
         chatWindow.scrollTop = chatWindow.scrollHeight;
+
+        if(isFirstMessage) {
+            isFirstMessage = false;
+        }
     }
 
     window.sendMessage = sendMessage;
