@@ -20,6 +20,7 @@ function generateUUID() {
 
 document.addEventListener("DOMContentLoaded", function() {
     let username = '';
+    let isFirstMessage = true;
     const chatWindow = document.getElementById('chatWindow');
 
     function promptUsername() {
@@ -46,7 +47,11 @@ document.addEventListener("DOMContentLoaded", function() {
         let userInput = inputField.value;
         inputField.value = '';
 
-        let isFirstMessage = chatWindow.children.length === 0;
+        if(chatWindow.children.length === 0) {
+            isFirstMessage = true;
+        } else {
+            isFirstMessage = false;
+        }
         
         let messageToSend = {
             username: username,
@@ -75,10 +80,6 @@ document.addEventListener("DOMContentLoaded", function() {
         const data = await response.json();
         chatWindow.innerHTML += `<div style="text-align: left;">Galdur: ${data.message}</div>`;
         chatWindow.scrollTop = chatWindow.scrollHeight;
-
-        if(isFirstMessage) {
-            isFirstMessage = false;
-        }
     }
 
     window.sendMessage = sendMessage;
