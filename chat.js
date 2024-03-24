@@ -49,8 +49,8 @@ document.addEventListener("DOMContentLoaded", function() {
         inputField.value = '';
 
         let messageToSend = {
-            Username: username,
-            UserInput: userInput, 
+            UserInput: userInput,
+            Username: username, 
             SessionId: localStorage.getItem('sessionId')
         };
         
