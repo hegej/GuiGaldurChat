@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         chatWindow.innerHTML += `<div class="user-message">${username}: ${userInput}</div>`;
 
-        const response = await fetch('https://hd0mqgsb-7071.euw.devtunnels.ms/api/Bot/chat', {
+        const response = await fetch('https://2g5xt7jm-7071.euw.devtunnels.ms/api/Bot/chat', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(messageToSend)
